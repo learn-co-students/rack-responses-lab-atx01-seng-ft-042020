@@ -1,7 +1,9 @@
 class Application
     def call(env)
         resp = Rack::Response.new
+        req = Rack::Request.new(env)
 
+        resp.write req.path
         resp.write greeting
         resp.finish
     end
